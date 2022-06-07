@@ -16,21 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        view.backgroundColor = .systemBackground
-        
-        configFields()
-        configItems()
-    }
-
-    func configFields() {
-        passwordField.type = .password
+         config()
     }
     
-    func configItems() {
+    private func config() {
         view.addSubview(stackView)
+        view.backgroundColor = .systemBackground
+        
+        passwordField.type = .password
         
         stackView.addArrangedSubview(loginField)
-       
         stackView.addArrangedSubview(passwordField)
         
         stackView.axis = .vertical
