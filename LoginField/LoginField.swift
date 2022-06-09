@@ -26,7 +26,13 @@ class LoginField: UIView {
         }
     }
     
-    let bottomLine = CALayer()
+    private let bottomLine: CALayer = {
+        let line = CALayer()
+        
+        line.backgroundColor = UIColor.systemGray.cgColor
+        return line
+    }()
+    
     let label = UILabel()
     let textField = UITextField()
     
@@ -71,9 +77,7 @@ extension LoginField {
     
     func addBottomLine() {
         bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
-        
-        bottomLine.backgroundColor = UIColor.systemGray.cgColor
-        
+
         layer.addSublayer(bottomLine)
     }
     
@@ -191,7 +195,6 @@ extension LoginField: UITextFieldDelegate {
         
         let text = type.rawValue == 0 ? "Email" : "Password"
         label.fadeOut(textField: textField, text: text)
-
         
         return true
     }
